@@ -57,9 +57,9 @@ La forma de la curva depende exclusivamente de la relación entre las frecuencia
 `a/b` y de su desfase *phi*. 
 Si `a/b = 1`, la curva es un segmento, una elipse o una circunferencia en función del desfase. 
 Si este cociente es racional, la curva será cerrada.
-Aunque para algunos valores de `a` y `b`pueda parecer abierta, como `a = b = 1` y `a = 2` y `b = 3` con desfase *phi* = 0, 
-en realidad se recorre dos veces, en un sentido y otro. 
-En cambio si el cociente es irracional, la curva es abierta y densa en el cuadrado `[0, 1] x [0, 1]`, en el sentido de que 
+Aunque para algunos valores de `a` y `b`pueda parecer abierta, como `a = b = 1` y `a = 3` y `b = 9` con desfase *phi* = 0, 
+en realidad la curva se recorre dos veces, en un sentido y otro. 
+En cambio si el cociente es irracional, la curva será abierta y densa en el cuadrado `[0, 1] x [0, 1]`, en el sentido de que 
 pasa arbitrariamente cerca de cualquier punto contenido en él.
 Consulte 
 [esta
@@ -68,6 +68,10 @@ si quiere conocer la historia de estas curvas y
 [estos
 vídeos](https://www.investigacionyciencia.es/blogs/tecnologia/14/posts/las-figuras-de-lissajous-videos-18493)
 si quiere ver las curvas y saber cómo generarlas físicamente.
+
+Utilice
+[esta página](https://academo.org/demos/lissajous-curves/) [2]
+interactiva para visualizar la figura cambiando interactivamente los parámetros de la curva.
 
 ### La clase *Lissajous*
 En esta práctica se propone desarrollar una clase `Lissajous` 
@@ -80,14 +84,15 @@ en la máquina IaaS-ULL de la asignatura y cuya URL tendrá la forma:
 `http://10.6.129.123:8080/einstein-albert-lissajous.html` [1]
 
 en la que se incustará un canvas para dibujar las curvas.
-Sustituya *Albert Einstein* por su nombre y apellidos en la URL de su página.
+Sustituya en la URL de su pagina *Albert Einstein* por su nombre y apellidos
+y la dirección IP por la correspondiente a su máquina IaaS.
 
 Utilice código HTML y CSS para imitar en la medida de lo posible la apariencia de
 [esta página](https://academo.org/demos/lissajous-curves/) [2]
 que se tomará como referencia.
-La página que Ud. diseñe ha de contener exclusivamente el canvas de dibujo de las curvas (área cuadriculada en
+La página que Ud. diseñe ha de contener el canvas de dibujo de las curvas (área cuadriculada en
 la web de referencia9 y una columna con los campos de texto que permitan introducir valores de los parámetros
-(columna derecha en la web [2] de referencia.
+(columna derecha en la web [2] de referencia).
 Se propone además que su página muestre
 * Texto explicativo de las curvas de Lissajous
 * Enlaces a páginas de referencia que se hayan utilizado para realizar este trabajo.
