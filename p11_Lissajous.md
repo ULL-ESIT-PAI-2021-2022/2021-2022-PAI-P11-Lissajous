@@ -125,7 +125,8 @@ function update() {
   requestAnimationFrame(update);
 }
 ``` 
-
+Aunque esta no es la única posibilidad disponible. 
+Puede Ud. explorar otras si lo desea.
 
 
 
