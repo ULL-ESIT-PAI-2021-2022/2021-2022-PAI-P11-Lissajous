@@ -83,39 +83,51 @@ vídeos](https://www.investigacionyciencia.es/blogs/tecnologia/14/posts/las-figu
 si quiere ver las curvas y saber cómo generarlas físicamente.
 
 ### La clase *Lissajous*
-En esta práctica se propone desarrollar una clase `Lissajous` que permita dibujar curvas de Lissajous en el
-viewport de una página web. 
+En esta práctica se propone desarrollar una clase `Lissajous` 
+que posibilite la visualización en una página web de curvas de Lissajous.
+La clase ha de encapsularse en un módulo ES6 `lissajous.js`.
 
 La visualización de la ejecución del programa se realizará a través de una página web alojada
 en la máquina IaaS-ULL de la asignatura y cuya URL tendrá la forma:
 
-[1] `http://10.6.129.123:8080/einstein-albert-mandelbrot.html`
+`http://10.6.129.123:8080/einstein-albert-lissajous.html` [1]
 
-en la que se incustará un canvas para dibujar el conjunto.
-Sustituya *Albert Einstein* por su nombre y apellido en la URL de su página
-y la dirección IP anterior por la correspondiente a su máquina IaaS.
+en la que se incustará un canvas para dibujar las curvas.
+Sustituya *Albert Einstein* por su nombre y apellidos en la URL de su página.
 
-El valor del área y el error de la misma se imprimirán asimismo **gráficamente** dentro del canvas.
-El resultado de dicha visualización debiera ser similar (a falta del área y error) al que muestra 
-[esta página](https://math.hws.edu/eck/js/mandelbrot/MB.html).
-
-No es necesario que invierta esfuerzo en la programación de los aspectos de esa página que no tienen relación
-con JavaScript. 
-Tanto HTML como CSS son aspectos que se estudiarán con cierto nivel de detalle en el futuro. 
-No se requiere que dedique esfuerzo a esos aspectos en esta práctica.
-Tampoco se propone en esta práctica que dote de interactividad a los elementos (botones, campos de texto,
-selectores, etc.) que figuran en la página anterior, y que no son necesarios en su trabajo.
+Utilice código HTML y CSS para imitar en la medida de lo posible la apariencia de
+[esta página](https://academo.org/demos/lissajous-curves/) [2]
+que se tomará como referencia.
+La página que Ud. diseñe ha de contener exclusivamente el canvas de dibujo de las curvas (área cuadriculada en
+la web de referencia9 y una columna con los campos de texto que permitan introducir valores de los parámetros
+(columna derecha en la web [2] de referencia.
+Se propone además que su página muestre
+* Texto explicativo de las curvas de Lissajous
+* Enlaces a páginas de referencia que se hayan utilizado para realizar este trabajo.
+* Cualquier elemento que les parezca oportuno e interesante
 
 Diseñe asimismo otra página HTML simple 
 
-[5] `http://10.6.129.123:8080/index.html`
+`http://10.6.129.123:8080/index.html` [3]
 
 que sirva de "página índice" para los ejercicios de la sesión de evaluación de la práctica.
-La página [1] será uno de los enlaces de [2] y a su vez [1] tendrá un enlace "Home" que apunte a [2].
-Enlace también en la página índice [2] las páginas que contienen los informes de documentación y de
+La página [1] será uno de los enlaces de [3] y a su vez [1] tendrá un enlace `Home` que apunte a [3].
+Enlace también en la página índice [3] las páginas que contienen los informes de documentación y de
 cubrimiento de código de su proyecto.
 
-## Visualización del conjunto
+Tenga en cuenta las siguientes especificaciones a la hora de diseñar su programa:
+
+* Haga que el canvas junto con el área de entrada de datos ocupe la mayor parte del viewport de su navegador.
+
+* La curva comenzará a dibujarse automáticamente una vez cagada la página en el navegador, sin esperar por ninguna interacción por parte del usuario.
+
+* Dote de funcionalidad al botón `Reset` de su página de modo que al actuar sobre él, se reinicie el dibujo
+  del camino aleatorio.
+
+El diseño de su página, que ha de imitar el de
+[la de referencia](https://academo.org/demos/lissajous-curves/)
+brinda una oportunidad para practicar los elementos HTML y CSS que se han estudiado hasta ahora.
+No se pretende que se utilicen elementos no estudiados hasta esta fecha.
 
 ## Referencias
 * [Lissajous Curves](https://academo.org/demos/lissajous-curves/) An interactive demonstration of Lissajous curves
