@@ -4,7 +4,7 @@
 ### Objetivos
 Los objetivos de esta tarea son poner en práctica:
 * Conceptos básicos de Programación orientada a eventos en JavaScript.
-* Conceptos básicos de Programación Gráfica en JavaScript usando la API Canvas.
+* Conceptos de Programación Gráfica en JavaScript usando la API Canvas.
 * Metodologías y conceptos de Programación Orientada a Objetos en JavaScript.
 * Principios y Buenas prácticas de programación Orientada a Objetos.
 
@@ -30,8 +30,6 @@ como
 [JSDoc](https://jsdoc.app/). 
   y ha de acreditarse la capacidad de generar documentación para sus programas utilizando la herramienta.
   Haga que la documentación del programa generada con JSDoc esté disponible a través de una web alojada en su máquina IaaS de la asignatura.
-* Ser capaz de resolver problemas de la plataforma Exercism, subiendo sus soluciones a la misma.
-* Acreditar que es capaz de desarrollar y ejecutar programas simples de la plataforma Jutge.
 * Se comprobará que el código que el alumnado escribe se adhiere a las reglas de la 
 [Guía de Estilo de Google para Javascript](https://google.github.io/styleguide/jsguide.html).
 * Todas las prácticas realizadas hasta la fecha, incluída la que se presenta para su evaluación, se encuentran alojadas en repositorios privados de GitHub.
@@ -39,18 +37,6 @@ como
   Code (VSC)
 
 ### Indicaciones de caracter general
-Los programas han de organizarse en torno a clases que se han de implementar usando la sintaxis para
-clases ES6 de JavaScript y poniendo en práctica los principios de abstracción y encapsulamiento característicos 
-de la Programación Orientada a Objetos.
-En los ejercicios han de ponerse en práctica los principios y buenas prácticas que han sido expuestos en las clases de la asignatura.
-
-Vigile siempre el tipo de visibilidad que elige para los atributos (properties) de sus clases
-y tenga en cuenta tanto las reglas de 
-[estilo](https://google.github.io/styleguide/jsguide.html#features-classes)
-como las 
-[etiquetas JSDoc](https://stackoverflow.com/questions/41715994/how-to-document-ecma6-classes-with-jsdoc)
-relacionadas con el constructo `class`.
-
 Previo a la implementación de cada clase, diseñe y desarrolle un conjunto de tests para probar el correcto
 funcionamiento de todos los métodos públicos.
 
@@ -68,10 +54,10 @@ Las
 son las curvas que recorre un punto sometido a un doble movimiento armónico simple en dos direcciones perpendiculares. 
 
 La forma de la curva depende exclusivamente de la relación entre las frecuencias de los dos movimientos, 
-`m/n` y de su desfase *phi*. 
-Si `m/ n = 1`, la curva es un segmento, una elipse o una circunferencia en función del desfase. 
-Si este cociente es racional, la curva será cerrada, aunque aquí solo se aprecia si `a` y `b` y n son enteros. 
-Aunque para algunos valores de `a` y `b`pueda parecer abierta, como `m = n = 1` y `m = 2` y `n = 3` con desfase *phi* = 0, 
+`a/b` y de su desfase *phi*. 
+Si `a/b = 1`, la curva es un segmento, una elipse o una circunferencia en función del desfase. 
+Si este cociente es racional, la curva será cerrada.
+Aunque para algunos valores de `a` y `b`pueda parecer abierta, como `a = b = 1` y `a = 2` y `b = 3` con desfase *phi* = 0, 
 en realidad se recorre dos veces, en un sentido y otro. 
 En cambio si el cociente es irracional, la curva es abierta y densa en el cuadrado `[0, 1] x [0, 1]`, en el sentido de que 
 pasa arbitrariamente cerca de cualquier punto contenido en él.
