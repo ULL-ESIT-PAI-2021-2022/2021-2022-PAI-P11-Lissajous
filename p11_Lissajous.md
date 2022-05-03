@@ -113,8 +113,21 @@ Tenga en cuenta las siguientes especificaciones a la hora de diseñar su program
 
 * La curva comenzará a dibujarse automáticamente una vez cagada la página en el navegador, sin esperar por ninguna interacción por parte del usuario.
 
-* Dote de funcionalidad al botón `Reset` de su página de modo que al actuar sobre él, se reinicie el dibujo
-  del camino aleatorio.
+* Para la actualización del dibujo en el viewport del navegador se propone utilizar una aproximación similar a
+* la que se ha utilizado en el ejemplo del reloj estudiado en clase.
+Ello pasa por el uso de una función `update()` cuyo código podría ser similar al siguiente:
+
+```js
+function update() {
+  time = (Date.now() - startTime) / 1000;
+  ctx.clearRect(...);
+  draw();
+  requestAnimationFrame(update);
+}
+``` 
+
+
+
 
 El diseño de su página, que ha de imitar el de
 [la de referencia](https://academo.org/demos/lissajous-curves/)
