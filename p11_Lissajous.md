@@ -114,7 +114,7 @@ Tenga en cuenta las siguientes especificaciones a la hora de diseñar su program
 * La curva comenzará a dibujarse automáticamente una vez cagada la página en el navegador, sin esperar por ninguna interacción por parte del usuario.
 
 * Para la actualización del dibujo en el viewport del navegador se propone utilizar una aproximación similar a
-* la que se ha utilizado en el ejemplo del reloj estudiado en clase.
+la que se ha utilizado en el ejemplo del reloj estudiado en clase.
 Ello pasa por el uso de una función `update()` cuyo código podría ser similar al siguiente:
 
 ```js
