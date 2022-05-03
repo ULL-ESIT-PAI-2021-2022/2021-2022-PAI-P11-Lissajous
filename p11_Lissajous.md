@@ -1,8 +1,9 @@
-# Práctica 10. Programación Gráfica en JavaScript. La API Canvas. El conjunto de Mandelbrot.
+# Práctica 11. Programación Gráfica en JavaScript. Eventos. Curvas de Lissajous.
 ### Factor de ponderación: 9
 
 ### Objetivos
 Los objetivos de esta tarea son poner en práctica:
+* Conceptos básicos de Programación orientada a eventos en JavaScript.
 * Conceptos básicos de Programación Gráfica en JavaScript usando la API Canvas.
 * Metodologías y conceptos de Programación Orientada a Objetos en JavaScript.
 * Principios y Buenas prácticas de programación Orientada a Objetos.
@@ -60,37 +61,30 @@ JSDoc para todos los ejercicios de la práctica.
 Configure un fichero `package.json` en el directorio raíz de su repositorio de modo que ejecutando 
 `npm install` queden instaladas todas las dependencias de su proyecto.
 
-### El conjunto de Mandelbrot
+### Las curvas de Lissajous
+Las 
+[curvas de Lissajous](https://es.wikipedia.org/wiki/Curva_de_Lissajous)
+son las curvas que recorre un punto sometido a un doble movimiento armónico simple en dos direcciones perpendiculares. 
 
-Como es sabido, un número complejo `c` puede representarse como un punto en un espacio bidimensional, el plano
-complejo.
-El 
-[conjunto de Mandelbrot](https://es.wikipedia.org/wiki/Conjunto_de_Mandelbrot)
-es un conjunto definido en el plano complejo.
-La pertenencia de un número complejo `c` al conjunto se determina en función de la siguiente relación de
-recurrencia:
+La forma de la curva depende exclusivamente de la relación entre las frecuencias de los dos movimientos, 
+`m/n` y de su desfase *phi*. 
+Si `m/ n = 1`, la curva es un segmento, una elipse o una circunferencia en función del desfase. 
+Si este cociente es racional, la curva será cerrada, aunque aquí solo se aprecia si `a` y `b` y n son enteros. 
+Aunque para algunos valores de `a` y `b`pueda parecer abierta, como `m = n = 1` y `m = 2` y `n = 3` con desfase *phi* = 0, 
+en realidad se recorre dos veces, en un sentido y otro. 
+En cambio si el cociente es irracional, la curva es abierta y densa en el cuadrado `[0, 1] x [0, 1]`, en el sentido de que 
+pasa arbitrariamente cerca de cualquier punto contenido en él.
+Consulte 
+[esta
+referencia](https://www.investigacionyciencia.es/revistas/investigacion-y-ciencia/el-nuevo-coronavirus-796/las-figuras-de-lissajous-18475)
+si quiere conocer la historia de estas curvas y
+[estos
+vídeos](https://www.investigacionyciencia.es/blogs/tecnologia/14/posts/las-figuras-de-lissajous-videos-18493)
+si quiere ver las curvas y saber cómo generarlas físicamente.
 
-`z = z^2 + c`
-
-donde `z` y `c` son números complejos. 
-
-La función tiene la condición inicial `z = c` siendo `c` es un número complejo cualquiera.
-Lo que habitualmente se calcula es el número de iteraciones necesarias para que `z` alcance algún valor umbral
-que en el caso del conjunto de Mandelbrot es:
-
-`|z| > 2.0`
-
-Si, dentro de un número finito de iteraciones, se cumple la condición anterior, entonces se 
-considera que el punto `c` está fuera del conjunto de Mandelbrot.
-
-[Este vídeo](https://www.youtube.com/watch?v=1uT67l5STEw) 
-puede ser un buen punto de partida para entender el conjunto de Mandelbrot y las tareas que en esta práctica se
-propone realizar.
-
-### La clase *Mandelbrot*
-En esta práctica se propone desarrollar una clase `Mandelbrot` 
-que posibilite la visualización del conjunto y calcular su área.
-La clase ha de encapsularse en un módulo ES6 `mandelbrot.js`.
+### La clase *Lissajous*
+En esta práctica se propone desarrollar una clase `Lissajous` que permita dibujar curvas de Lissajous en el
+viewport de una página web. 
 
 La visualización de la ejecución del programa se realizará a través de una página web alojada
 en la máquina IaaS-ULL de la asignatura y cuya URL tendrá la forma:
@@ -123,65 +117,8 @@ cubrimiento de código de su proyecto.
 
 ## Visualización del conjunto
 
-Para visualizar el conjunto basta recorrer todos los píxeles (puntos) del canvas asignando un color a cada
-uno dependiendo del número de iteraciones que precisa el punto en cuestión para determinar si pertenece
-o no al conjunto de Mandelbrot.
-Es muy fácil hallar ejemplos de código que realizan este cálculo de diferentes formas.
-Puede consultar 
-[esta referncia](https://www.codingame.com/playgrounds/2358/how-to-plot-the-mandelbrot-set/adding-some-colors) 
-(código en Python) a modo de ejemplo.
-Nota: no imite Ud. la elección de identificadores que se hace en ese código de ejemplo en Python.
-
-Pueden idearse estrategias para que la visualización del conjunto resulte fluída.
-Un factor importante para conseguir fluidez es la optimización del código, puesto que se trata de una aplicación intensiva en cómputo.
-
-## Cálculo del área
-El cálculo del área del conjunto de Mandelbrot es un problema no trivial, ya que los resultados teóricos y 
-numéricos obtenidos para este cálculo no concuerdan. 
-Se propone usar el muestreo de Monte Carlo para calcular una solución numérica a este problema.
-El método de Monte Carlo que que se propone implica la generación de un gran número de puntos 
-aleatorios en el rango `[(-2.0, 0), (0.5, 1.125)]` del plano complejo. 
-Cada punto será iterado usando la ecuación de recurrencia
-`z = z^2 + c`
-hasta un determinado límite (digamos hasta 10000). 
-Ese número de iteraciones es el que se elige en el selector *MaxIterations* en la 
-[página](https://math.hws.edu/eck/js/mandelbrot/MB.html).
-Si dentro de ese número de iteraciones se cumple la condición de umbral, entonces ese punto se considera 
-fuera (no perteneciente) del Conjunto de Mandelbrot. 
-Al contabilizar el número de puntos aleatorios dentro del conjunto y los que están fuera, se obtiene
-una buena aproximación del área del conjunto.
-El algoritmo que se propone se describe a continuación:
-
-1. Se genera un conjunto de `N` números complejos aleatorios en el intervalo `[(-2.0, 0), (0.5, 1.125)]`.
-2. Realizar el muestreo de Monte Carlo iterando sobre los `N` puntos.  
-Para cada punto:
-
- - Asignar `z = c[i]`
-
- - Iterar según la ecuación de recurrencia, probando la condición umbral en cada iteración:
-
- - Si no se cumple la condición del umbral, es decir, `|z| <= 2`, entonces repetir la iteración 
-  (hasta el número máximo de iteraciones predeterminado). 
-	Si después del número máximo de iteraciones la condición sigue sin satisfacerse, entonces 
-	añada uno al número total de puntos dentro del conjunto.
-
- - Si se cumple la condición del umbral, entonces deje de iterar y pase al siguiente punto.
-3. Una vez que todos los puntos han sido categorizados como dentro o fuera del conjunto, 
-el área estimada y el error vienen dado por las siguientes expresiones:
-
-> Àrea = 2 * 2.5 * 1.125 * N<sub>dentro</sub> / N
-
-> Error = Área / sqrt(N)
-
-Escriba el código para calcular el área y su error e imprima esos valores gráficamente (no en HTML) dentro del
-canvas en una esquina del área de dibujo.
-
-Nótese que el número de puntos `N` que el programa utilice para calcular el área es un parámetro
-que de algún modo habrá que configurar.
-
 ## Referencias
-* [El Conjunto de Mandelbrot](https://es.wikipedia.org/wiki/Conjunto_de_Mandelbrot)
-* [El conjunto de Mandelbrot. Vídeo](https://www.youtube.com/watch?v=1uT67l5STEw) 
+* [Lissajous Curves](https://academo.org/demos/lissajous-curves/) An interactive demonstration of Lissajous curves
 * [ESLint](https://eslint.org/)
 * [JSDoc](https://jsdoc.app/)
 * [The Modern Javascript Tutorial](https://javascript.info)
