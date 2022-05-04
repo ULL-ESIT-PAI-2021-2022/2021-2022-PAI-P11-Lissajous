@@ -128,7 +128,9 @@ function update() {
 Aunque esta no es la única posibilidad disponible. 
 Puede Ud. explorar otras si lo desea.
 
-
+En ese código la variable `time` almacena el instante de tiempo actual, necesario para realizar la animación.
+La finalidad del resto de funciones se deduce de su nombre y contexto. 
+Puede asimismo consultarse la documentación sobre las mismas.
 
 El diseño de su página, que ha de imitar el de
 [la de referencia](https://academo.org/demos/lissajous-curves/)
